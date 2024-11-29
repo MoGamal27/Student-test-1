@@ -1,0 +1,92 @@
+{
+    "Arabe":"Arabe",
+    "Home":"Home",
+    "Contact":"Contact",
+    "MyAppointment":"My Appointment",
+    "My Profile": "My Profile",
+    "Logout":"Logout",
+    "aboutus":"About us",
+    "description": "The Easiest and Most Affordable Way to Learn Arabic ",
+    "paragraph": "Programs and modules expertly created and tailored fit by top educators",
+    "Book":"Book appoinment",
+    "Menu":"Created for the academy",
+    "Menu1":"Curriculum our modules are carefully designed to align with and enhance the Arabic Curriculum.",
+    "Menu2":"Advanced Technology",
+    "Menu3":"Arabie leverages state of the-art technology to offer students a seamless and convenient learning experience.",
+    "Menu4":"Learn Arabic without spending a lot.",
+    "Menu5":"Affordability and flexibility are Arabe's main advantages over other platforms.",
+    "Menu6":"Curriculum our modules are carefully designed to align with and enhance the Arabic Curriculum.",
+    "ourTeacher": "Get to Know Our Teachers",
+    "Avi":"Available",
+    "learn":"Learn More About Arabe",
+    "learn1":"Arabe is an Arabic language learning platform designed to provide accessible and effective methods for learners of all ages and backgrounds. We focus on helping individuals reach their Arabic language goals through personalized one-on-one lessons. With our affordable pricing, high-quality instruction, and flexible learning options, mastering Arabic  has never been simpler. Join Arabe today and begin your journey to Arabic fluency,",
+    "learn2":"let's learn Arabic  with Arabe",
+    "learn3":"Learn More",
+    "about4":"About",
+    "about5":"us",
+    "about":"Welcome to Arabe, the leading platform for Arabic language studies with a unique focus on providing tailored materials to suit the curriculum in The Middle East. Our commitment to excellence is reflected in our specialized programs designed to cater to various age groups and learning objectives.",
+    "about1":"At Arabe, we believe that knowledge is power and that mastering the Arabic language is key to unlocking a world of opportunities. Our carefully selected teachers have over a decade of experience in the field and possess exceptional skills to ensure that our students receive the best possible education. We believe that every student deserves the chance to succeed, and that's why we offer flexible and affordable options to suit every budget and schedule.",
+    "about2":"Our goal is to empower our students to achieve their academic and professional goals by providing them with the necessary tools and support to excel in their classes and improve their language skills. Whether it's through practicing the lessons they learn at school, preparing for exams, or receiving individualized attention, we are committed to providing a high-quality education to all our students.",
+    "foter":"Company Specialization",
+    "foter1":"Reparatory Arabic for school",
+    "foter2":"Arabic for Students",
+    "foter3":"Arabic for Adults",
+    "foter4":"Arabic English",
+    "foter5":"information",
+    "foter6":"terms and conditions",
+    "foter7":"privacy",
+    "foter8":"Contact Info",
+    "foter9":"what's App",
+    "foter10":"Chat with us",
+    "fee":"Appointment fee:",
+    "slot":"Available Slots",
+    "toapp":"to book an appointment",
+    "toapp1":"Please",
+    "fullname": "Full Name",
+    "email":"Email",
+    "password":"Password",
+    "haveaccout":"Already have an account?",
+    "Loginhere":"Login here",
+    "Createaccount":"Create a new account?",
+    "Loginhere1":"Ckick here",
+    "Date":"Date & Time: ",
+    "Payonline":"Payment succeeded!",
+    "Cancel":"Cancel",
+    "No appointments found":"No appointments found.",
+    "Point":"Point",
+    "Pay":"Pay now",
+    "save":"Save information",
+    "edit":"Edit",
+    "Schedule":"Schedule Manager",
+    "AddSlot":"Add Slot",
+    "AvailableSlots:":"Available Slots:",
+    "Remove":"Remove",
+    "Bio":"Bio",
+    "Translate" : "Translate",
+    "teachers": {  
+               "1": {
+                "name": "Teacher medo",
+                "bio": "hi! My name is Medo, and I am a certified teacher of the Arabic language, specializing in the Palestinian dialect as well as Modern Standard Arabic. I’ve been working in the education field for 5 years I have a Bachelor's degree in Hebrew, and Arabic is my native language. I also have experience as a teacher for school-aged students. I focus on understanding each student’s needs, helping them grow, learn, and build confidence.I have taught numerous students of all levels and specialize in guiding students from beginners to the most advanced levels. If you’re eager to learn Arabic and achieve excellent results, I am here for you!My goal is to provide an easy, effective way to learn spoken Arabic. I look forward to meeting you soon."
+               },
+               "2": {
+                "name": "Teacher Ahemd",
+                "bio": "Hello! My name is Ahmad, and I am a certified teacher of the Arabic language, specializing in the Palestinian dialect as well as Modern Standard Arabic. I hold a Bachelor's degree in Hebrew, and Arabic is my native language. For over two years, I have taught numerous students of all levels and specialize in guiding students from beginners to the most advanced levels. In addition to teaching Hebrew, I also teach Arabic. I believe that to learn a new language, it’s important to feel confident and motivated to keep progressing. My teaching is personalized for each student, and I am here to accompany you at every stage to ensure you progress at your own pace. If you’re eager to learn Arabic and achieve excellent results, I am here for you! Let’s embark together on a meaningful and enriching learning journey, where you will gain confidence and develop new language skill."    
+               },
+               "3": {
+                "name": "Teacher nace",
+                "bio": "Hello, my name is Nancy, and I am 23 years old language enthusiast with a strong background in teaching and translation. I am passionate about language education and have taught the Palestinian dialect to various age groups, along with Modern Standard Arabic and Egyptian dialect lessons tailored for foreign learners. My focus on cultural nuances and effective communication has greatly enhanced my students’ learning experiences, And I bring proficiency in English, Hebrew, and Syriac, allowing me to provide nuanced, high-quality translations. I have collaborated with international clients on Upwork and Freelancer, working with companies in India and Portugal to translate books and official documents, such as birth certificates, from Hebrew into both English and Arabic."
+               },
+               "4": {
+                "name": "Teacher Heba",
+                "bio": "Hello, My name is Hiba, and I’m 25 years old. I’ve been working in the education field for four years, where I’ve developed and advanced my skills in teaching.I also have experience as a teacher for school-aged students. My approach goes beyond simply covering material; I focus on understanding each student’s needs, helping them grow, learn, and build confidence. I see clear progress each week as they gain skills and feel more comfortable. Each lesson is engaging, useful, and connected to real-life experiences and Arab culture.My goal is to provide an easy, effective way to learn spoken Arabic. I look forward to meeting you soon."
+               },
+               "5": {
+                "name": "Teacher manar",
+                "bio": "I am manar, a dedicated 23 year old professional in translation and language instruction with a rich foundation built during my university years. Proficient in English, Hebrew, and Syriac, I bring a unique linguistic perspective to my work. I have collaborated with international clients on Upwork and Freelancer, partnering with companies in India and Portugal to deliver high-quality translations of books and official documents, such as birth certificates, from Hebrew to both English and Arabic.Beyond translation, I am passionate about language education. I have instructed diverse age groups in the Palestinian dialect, as well as provided Modern Standard Arabic and Egyptian dialect lessons tailored for foreign learners. My focus on cultural nuances and effective communication has consistently enriched my students’ experiences and contributed to my clients’ success."
+               }
+          }
+    
+    }
+
+
+

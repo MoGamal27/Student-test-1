@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.active hr{
+        @apply block
+}
+
+.paypal-logo  {
+       display: none !important;
+}
+::-webkit-scrollbar{
+        @apply hidden
+}
+
+.header{ 
+        background-image: url(../../Student//src/assets/assets_frontend/contact-header.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 30vh;
+}
+body{
+        background-image: url(../../Student//public/wep-1.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        width: 100%;
+}
+
+@media (max-width:740px) {
+        .active p{
+                @apply text-white bg-Black
+        }
+}
