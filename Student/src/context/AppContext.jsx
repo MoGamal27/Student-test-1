@@ -6,30 +6,7 @@ export const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
     const [teachers, setTeachers] = useState([]);
-    const [error, setError] = useState(null);
-    const [point, setPoint] = useState(0);
-    
-    const [accounts, setAccounts] = useState({
-      myAccount: { id: '1', points: 100 },
-      anotherAccount: { id: '2', points: 50 },
-  });
-
-  const transferPoints = (senderId, receiverId, amount) => {
-    setAccounts((prev) => {
-        const senderPoints = prev[senderId].points - amount;
-        const receiverPoints = prev[receiverId].points + amount;
-        return {
-            ...prev,
-            [senderId]: { ...prev[senderId], points: senderPoints },
-            [receiverId]: { ...prev[receiverId], points: receiverPoints },
-        };
-    });
-};
-
-////////////
-    
-    
-
+       
 /////////////////////
 
     useEffect(() => {
@@ -46,7 +23,7 @@ export const AppProvider = ({ children }) => {
     }, []);
 
     return (
-        <AppContext.Provider value={{ teachers ,accounts , transferPoints}}>
+        <AppContext.Provider value={{ teachers }}>
             {children}
         </AppContext.Provider>
     );

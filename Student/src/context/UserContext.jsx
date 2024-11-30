@@ -45,13 +45,36 @@ const UserContextProvider = ({ children }) => {
             return { success: false, data: [] };
         }
     };
+
+    const PayWithPoints = async (bookingId, studentId) => {
+        try {
+          const response = await axios.post(
+            'http://localhost:3000/api/payment/pay-with-points',
+            {
+              bookingId,
+              studentId,
+            },
+            {
+              headers: { Authorization: `Bearer ${token}` },
+            }
+          );
+    
+          if (response.data.success) { 
+            alert('Payment successful! According to the policy of the Arabe Academy, if you want to cancel or reschedule the meeting, please notify us at least 3 hours before the lesson. Otherwise, the lesson will be marked as completed. Good luck 🙏🙏 You can contact us through customer service from here whats App +972 54-648-7767');  
+        } else {
+            alert('Payment failed!');
+        }
+    } catch (error) {
+        alert('Payment failed!', error.message);
+        }
+    };
     
     
 
    
 
     return (
-        <UserContext.Provider value={{ user, setUser, getUserById, getCompletedCourses, token, setToken }}>
+        <UserContext.Provider value={{ user, setUser, getUserById, getCompletedCourses, token, setToken, PayWithPoints }}>
             {children}
         </UserContext.Provider>
     );

@@ -4,9 +4,11 @@ import { jwtDecode } from 'jwt-decode';
 import { AppContext } from '../context/AppContext';
 import { useTranslation } from 'react-i18next';
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
+import { UserContext } from '../context/UserContext';
 
 export default function MyAppointment() {
   const { teachers } = useContext(AppContext);
+  const { PayWithPoints } = useContext(UserContext);
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -31,7 +33,7 @@ export default function MyAppointment() {
     const token = localStorage.getItem('token');
     if (token) {
       const decodedToken = jwtDecode(token);
-      setStudentId(decodedToken.id); // Assuming the token contains the student's ID
+      setStudentId(decodedToken.id); 
     }
   }, []);
 
@@ -83,54 +85,79 @@ export default function MyAppointment() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
-  
+  const groupBookingsByTeacher = () => {
+    const grouped = {};
+    bookings.forEach(booking => {
+      if (!grouped[booking.teacherId]) {
+        grouped[booking.teacherId] = {
+          bookings: [],
+          totalFees: 0,
+          teacher: teachers.find(t => t.id === booking.teacherId)
+        };
+      }
+      grouped[booking.teacherId].bookings.push(booking);
+      grouped[booking.teacherId].totalFees += grouped[booking.teacherId].teacher?.fees || 0;
+    });
+    return grouped;
+  };
 
-  return <>
-      <section className='pb-80'>
+  return (
+    <section className='pb-80'>
       <div className='bg-sky-200 md:w-96'>
-      <p className='pb-3 mt-12 bg-sky-200 flex justify-center items-center pt-2 font-medium text-zinc-700 border-b'>{t('MyAppointment')}</p>
-      <div>
-        {bookings.length > 0 ? (
-          bookings.map((booking) => {
-            const teacher = teachers.find(teacher => teacher.id === booking.teacherId);
-            return (
-              <div className='gap-4 bg-white sm:gap-6 p-2 border-b' key={booking.id}>
-                {/* Card Content */}
-                <div className=' justify-center items-center'>
-                  <img className='w-96 h-52  bg-indigo-50 object-cover ' src={teacher?.image} alt={teacher?.name} />
-                  <div className='text-sm text-zinc-600'>
+        <p className='pb-3 mt-12 bg-sky-200 flex justify-center items-center pt-2 font-medium text-zinc-700 border-b'>
+          {t('MyAppointment')}
+        </p>
+        <div>
+          {Object.values(groupBookingsByTeacher()).map(({ teacher, bookings, totalFees }) => (
+            <div className='gap-4 bg-white sm:gap-6 p-2 border-b' key={teacher?.id}>
+              <div className='justify-center items-center'>
+                <img 
+                  className='w-96 h-52 bg-indigo-50 object-cover' 
+                  src={teacher?.image} 
+                  alt={teacher?.name} 
+                />
+                <div className='text-sm text-zinc-600'>
                   <p className='text-neutral-800 font-medium'>{teacher?.name}</p>
-                  <p className=" text-sm font-medium rounded-md">Fee: </p>
-                  <p className='text-xs mt-1 flex justify-between'>
-                  <span className='text-sm text-neutral-700 font-medium'>{t('Date')}</span> {booking.slotDate} / {booking.slotTime}
-                  </p>
-                </div>
-                </div>
-              
-
-                {/* Action Buttons */}
-                <div className='flex flex-col gap-2 justify-between'>
-                  <button
-                    className='text-sm text-white text-center bg-blue-500 sm:min-w-48 py-2 border rounded hover:bg-blue-700 hover:text-white transition-all duration-300'
-                    onClick={() => makePayment(booking)}
-                  >
-                    {t('Pay')}
-                  </button>
-
-                  <button
-                    className='text-sm text-stone-500 text-center bg-gray-200 sm:min-w-48 py-2 border rounded hover:bg-red-500 hover:text-white transition-all duration-300'
-                    onClick={() => handleCancelAppointment(booking.id)}
-                  >
-                    {t('Cancel')}
-                  </button>
+                  <p className="text-sm font-medium rounded-md">Total Fees: ${totalFees}</p>
+                  
+                  {/* Display all booking times */}
+                  <div className='mt-2'>
+                    <p className='font-medium'>Booking Times:</p>
+                    {bookings.map((booking, index) => (
+                      <p key={index} className='text-xs mt-1'>
+                        {booking.slotDate} / {booking.slotTime}
+                      </p>
+                    ))}
+                  </div>
                 </div>
               </div>
-            );
-          })
-        ) : (
-          <p>{t('No appointments found')}.</p>
-        )}
-      </div>
+  
+              {/* Action Buttons */}
+              <div className='flex flex-col gap-2 justify-between mt-4'>
+                <button
+                  className='text-sm text-white text-center bg-blue-500 sm:min-w-48 py-2 border rounded hover:bg-blue-700 hover:text-white transition-all duration-300'
+                  onClick={() => makePayment(bookings)}
+                >
+                  {t('Pay All')} (${totalFees})
+                </button>
+  
+                <button
+                  className='text-sm text-stone-500 text-center bg-gray-200 sm:min-w-48 py-2 border rounded hover:bg-red-500 hover:text-white transition-all duration-300'
+                  onClick={() => bookings.forEach(b => handleCancelAppointment(b.id))}
+                >
+                  {t('Cancel All')}
+                </button>
+  
+                <button
+                  className="text-sm text-black text-center bg-yellow-500 sm:min-w-48 py-2 border rounded hover:bg-yellow-700 hover:text-white transition-all duration-300"
+                  onClick={() => PayWithPoints(bookings[0].id, studentId)}
+                >
+                  {t('Pay with Points')}
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
 
       {/* PayPal Script Provider for Payments */}
       {showPayPal && (
@@ -161,26 +188,6 @@ export default function MyAppointment() {
         </div>
       )}
       </div>
-        
-        {/* Pay with point */}
-        <div className="container mx-auto">
-         {/* Button to toggle text visibility */}
-         <button
-        onClick={toggleTextPoint}
-        className="bg-black text-white py-2 px-4 w-full rounded-md mb-4 hover:bg-blue-300  hover:text-black font-semibold transition duration-300"
-      >
-        {isTextPoint ? 'Close' : 'Pay with Point'}
-      </button>
-
-           {/* Conditional Rendering of Text */}
-          {isTextPoint && (
-        <div className="bg-gray-100 p-4 rounded-lg shadow-md text-sm text-gray-700">
-          <p>
-            Lorem, ipsum.
-          </p>        
-        </div>
-      )}
-      </div>
 
       <PayPalButtons
       createOrder={async (data, actions) => {
@@ -202,13 +209,8 @@ export default function MyAppointment() {
         </PayPalScriptProvider>
       )}
     </div>
-    </section>
-        
-  
-  
-  </>
-  
-  
+  </section>
+);
 }
 
   

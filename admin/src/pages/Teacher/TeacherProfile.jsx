@@ -23,7 +23,12 @@ export default function TeacherProfile() {
             bio: teacher.bio,
             fees: teacher.fees,
             image: teacher.image,
-            video: teacher.video
+            video: teacher.video,
+            location: teacher.location,
+            specialization: teacher.specialization,
+            degree: teacher.degree,
+            speaks: teacher.speaks,
+            courseDescription: teacher.courseDescription,
         });
         setIsEditing(true);
     };
@@ -50,6 +55,32 @@ export default function TeacherProfile() {
                     <p className='flex items-center gap-1 text-sm font-medium text-neutral-800 mt-3'>About:</p>
                     <p className='text-sm text-gray-500 max-w-[700px] mt-1'>{teacher.bio}</p>
                 </div>
+
+                <div>
+                    <p className='flex items-center gap-1 text-sm font-medium text-neutral-800 mt-3'>Location:</p>
+                    <p className='text-sm text-gray-500 max-w-[700px] mt-1'>{teacher.location}</p>
+                </div>
+
+                <div>
+                    <p className='flex items-center gap-1 text-sm font-medium text-neutral-800 mt-3'>Teacher:</p>
+                    <p className='text-sm text-gray-500 max-w-[700px] mt-1'>{teacher.specialization}</p>
+                </div>
+
+                <div>
+                    <p className='flex items-center gap-1 text-sm font-medium text-neutral-800 mt-3'>Certificate:</p>
+                    <p className='text-sm text-gray-500 max-w-[700px] mt-1'>{teacher.degree}</p>
+                </div>
+
+                <div>
+                    <p className='flex items-center gap-1 text-sm font-medium text-neutral-800 mt-3'>Speaks:</p>
+                    <p className='text-sm text-gray-500 max-w-[700px] mt-1'>{teacher.speaks}</p>
+                </div>
+
+                <div>
+                    <p className='flex items-center gap-1 text-sm font-medium text-neutral-800 mt-3'>About Course:</p>
+                    <p className='text-sm text-gray-500 max-w-[700px] mt-1'>{teacher.courseDescription}</p>
+                </div>
+
                 <p className='text-gray-600 font-medium mt-4'>
                     Appointment fee: <span className='text-gray-800'>{teacher.fees}$</span>
                 </p>
@@ -82,8 +113,52 @@ export default function TeacherProfile() {
                            rows="4"
                        ></textarea>
                
+                      <textarea
+                      name="location"
+                      value={updatedData.location}
+                      onChange={handleInputChange}
+                      placeholder="Location"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      rows="4"
+                      ></textarea>
+
+                      <textarea
+                      name="specialization"
+                      value={updatedData.specialization}
+                      onChange={handleInputChange}
+                      placeholder="Specialization"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      rows="4"
+                      ></textarea>
+
+                      <textarea
+                      name="degree"
+                      value={updatedData.degree}
+                      onChange={handleInputChange}
+                      placeholder="Degree"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      rows="4"
+                      ></textarea>
+
+                      <textarea
+                      name="speaks"
+                      value={updatedData.speaks}
+                      onChange={handleInputChange}
+                      placeholder="Speaks"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      rows="4"
+                      ></textarea>
+
+                      <textarea
+                      name="courseDescription"
+                      value={updatedData.courseDescription}
+                      onChange={handleInputChange}
+                      placeholder="Course Description"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      rows="4"
+                      ></textarea>
                       
-                       <input
+                         <input
                            type="number"
                            name="fees"
                            value={updatedData.fees}
