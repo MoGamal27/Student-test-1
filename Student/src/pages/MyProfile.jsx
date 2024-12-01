@@ -41,6 +41,8 @@ export default function MyProfile() {
         <div className='grid grid-cols-[1fr_3fr] gap-y-2.5 mt-3 text-neutral-700'>
           <p className='font-medium'>{t('email')}</p>
           <p className='text-blue-500'>{user.email}</p>
+          <p className='font-medium'>{t('phone')}</p>
+          <p className='text-blue-500'>{user.phone}</p>
         </div>
         <div className='mt-4'>
           <p className='font-medium'>{t('Point')} : {user.point}</p>
