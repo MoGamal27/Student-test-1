@@ -26,8 +26,10 @@ export default function TeacherProfile() {
             video: teacher.video,
             location: teacher.location,
             specialization: teacher.specialization,
+            levelTeache: teacher.levelTeache,
             degree: teacher.degree,
             speaks: teacher.speaks,
+            levelSpeak: teacher.levelSpeak,
             courseDescription: teacher.courseDescription,
         });
         setIsEditing(true);
@@ -67,6 +69,11 @@ export default function TeacherProfile() {
                 </div>
 
                 <div>
+                    <p className='flex items-center gap-1 text-sm font-medium text-neutral-800 mt-3'>level Teaches:</p>
+                    <p className='text-sm text-gray-500 max-w-[700px] mt-1'>{teacher.levelTeache}</p>
+                </div>
+
+                <div>
                     <p className='flex items-center gap-1 text-sm font-medium text-neutral-800 mt-3'>Certificate:</p>
                     <p className='text-sm text-gray-500 max-w-[700px] mt-1'>{teacher.degree}</p>
                 </div>
@@ -74,6 +81,11 @@ export default function TeacherProfile() {
                 <div>
                     <p className='flex items-center gap-1 text-sm font-medium text-neutral-800 mt-3'>Speaks:</p>
                     <p className='text-sm text-gray-500 max-w-[700px] mt-1'>{teacher.speaks}</p>
+                </div>
+
+                <div>
+                    <p className='flex items-center gap-1 text-sm font-medium text-neutral-800 mt-3'>level Speaks:</p>
+                    <p className='text-sm text-gray-500 max-w-[700px] mt-1'>{teacher.levelSpeak}</p>
                 </div>
 
                 <div>
@@ -132,6 +144,15 @@ export default function TeacherProfile() {
                       ></textarea>
 
                       <textarea
+                      name="levelTeache"
+                      value={updatedData.levelTeache}
+                      onChange={handleInputChange}
+                      placeholder="Level Teaches"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      rows="4"
+                      ></textarea>
+
+                      <textarea
                       name="degree"
                       value={updatedData.degree}
                       onChange={handleInputChange}
@@ -145,6 +166,15 @@ export default function TeacherProfile() {
                       value={updatedData.speaks}
                       onChange={handleInputChange}
                       placeholder="Speaks"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      rows="4"
+                      ></textarea>
+
+                      <textarea
+                      name="levelSpeak"
+                      value={updatedData.levelSpeak}
+                      onChange={handleInputChange}
+                      placeholder="Level Speak"
                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                       rows="4"
                       ></textarea>

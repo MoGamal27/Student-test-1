@@ -235,6 +235,9 @@ const calculateTotalAppointments = () => {
       <p className="font-medium text-gray-500">Teacher</p>
       <p className="text-black font-semibold flex">
         {teacherInfo.specialization}
+    <h2 className="ml-3 border bg-green-100 rounded-lg text-sm text-green-600 pl-1 pr-1">
+          {teacherInfo.levelTeache}
+        </h2>
       </p>
     </div>
 
@@ -244,6 +247,9 @@ const calculateTotalAppointments = () => {
   <p className="font-medium text-gray-500">Speaks</p>
   <p className="text-black sm:ml-3  font-semibold flex">
     {teacherInfo.speaks}
+<h2 className="ml-3 border bg-green-100 rounded-lg text-sm text-green-600 pl-1 pr-1">
+      {teacherInfo.levelSpeak}
+    </h2>
   </p>
 </div>
 
