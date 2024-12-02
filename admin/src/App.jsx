@@ -14,6 +14,7 @@ import TeacherAppointement from './pages/Teacher/TeacherAppointement';
 import TeacherProfile from './pages/Teacher/TeacherProfile';
 import Points from './pages/Admin/points';
 
+
 export default function App() {
 
   const { token } = useContext(AdminContext)

@@ -429,4 +429,3 @@ const calculateTotalAppointments = () => {
   );
 }
 
-

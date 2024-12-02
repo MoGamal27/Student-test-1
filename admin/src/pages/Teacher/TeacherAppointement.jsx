@@ -30,7 +30,12 @@ export default function TeacherAppointment() {
                 studentId: studentId,
                 points: points
              }); 
-                toast.success('Points added successfully.');   
+             if (response.data.success) {  
+                setPoints('');
+            toast.success('Points added successfully.');
+             } else {
+                toast.error(response.data.message)
+             }
         } catch (error) {
             console.log(error)
             toast.error(error.message)
